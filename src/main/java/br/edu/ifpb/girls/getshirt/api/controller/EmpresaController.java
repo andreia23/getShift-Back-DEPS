@@ -2,6 +2,8 @@ package br.edu.ifpb.girls.getshirt.api.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.edu.ifpb.girls.getshirt.api.model.Cliente;
 import br.edu.ifpb.girls.getshirt.api.model.Empresa;
 import br.edu.ifpb.girls.getshirt.api.service.EmpresaService;
 
@@ -43,12 +44,12 @@ public class EmpresaController {
 	}
 
 	@PostMapping("/empresas")
-	public Empresa inserirEmpresa(@RequestBody Empresa empresa) {
+	public Empresa inserirEmpresa(@Valid @RequestBody Empresa empresa) {
 		return this.empresaService.inserirEmpresa(empresa);
 	}
 
 	@PutMapping("/empresas/{id}")
-	public Empresa atualizarEmpresa(@RequestBody Empresa empresa) {
+	public Empresa atualizarEmpresa(@Valid @RequestBody Empresa empresa) {
 		return this.empresaService.atualizarEmpresa(empresa);
 	}
 
