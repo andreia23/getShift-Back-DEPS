@@ -2,6 +2,8 @@ package br.edu.ifpb.girls.getshirt.api.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,12 +44,12 @@ public class ClienteController {
 	}
 
 	@PostMapping("/clientes")
-	public Cliente inserirCliente(@RequestBody Cliente cliente) {
+	public Cliente inserirCliente(@Valid @RequestBody Cliente cliente) {
 		return this.ClienteService.inserirCliente(cliente);
 	}
 
 	@PutMapping("/clientes/{id}")
-	public Cliente atualizarCliente(@RequestBody Cliente cliente) {
+	public Cliente atualizarCliente(@Valid @RequestBody Cliente cliente) {
 		return this.ClienteService.atualizarCliente(cliente);
 	}
 
